@@ -6,7 +6,7 @@ export interface chat {
 
 export interface GeneralResponse {
     id:string,
-    message?:string,
+    message:string,
     status?:mtyp.Status
 }
 
