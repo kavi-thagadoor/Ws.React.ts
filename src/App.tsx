@@ -69,7 +69,7 @@ function App() {
       };
 
       socket.emit("message", req, (response: typ.GeneralResponse) => {
-        console.log(response.message);
+        // console.log(response.message);
         // Optionally, add the message to local state after it is successfully sent
         setMessages((prevMessages) => [...prevMessages, response]);
       });
@@ -81,30 +81,40 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Simple Chat App</h1>
+      <h1> Chat App</h1>
 
       <input
         type="text"
         value={messageInput}
         onChange={(e) => setMessageInput(e.target.value)}
-        placeholder="Type your message..."
-      />
+        placeholder="Type here"
+        className="input input-bordered input-primary w-full max-w-xs" />
 
-      <button onClick={editingMessageId ? saveEditedMessage : sendMessage}>
-        {editingMessageId ? "Save" : "Send"}
-      </button>
+      <button onClick={editingMessageId ? saveEditedMessage : sendMessage} className="btn btn-primary"> {editingMessageId ? "Save" : "Send"}</button>
 
       <div className="messages">
         {Array.isArray(messages) &&
           messages.map((message, index) => (
             <div key={index}>
               <strong>{message.message}</strong>{" "}
-              <button onClick={() => handleDeleteMessage(message.id)}>
+             
+              <button className="btn" onClick={() => handleDeleteMessage(message.id)}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
                 Delete
               </button>
-              <button onClick={() => handleEditMessage(message.message, message.id)}>
-                Edit
-              </button>
+              <button onClick={() => handleEditMessage(message.message, message.id)} className="btn btn-primary">Edit</button>
+
             </div>
           ))}
       </div>

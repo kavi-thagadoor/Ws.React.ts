@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# Ws.React.ts
-=======
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -51,4 +48,3 @@ export default tseslint.config({
   },
 })
 ```
->>>>>>> 7a81681 (create,insert,delete websocket server actions done for real time chat app)
