@@ -1,0 +1,12 @@
+.messages {
+    max-height: 550px;
+    overflow-y: auto;
+    padding-right: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .messages {
+      max-height: 450px; /* Adjust height for mobile */
+    }
+  }
+  
